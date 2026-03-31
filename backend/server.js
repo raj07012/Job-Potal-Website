@@ -15,17 +15,7 @@ if (!fs.existsSync(uploadsDir)) {
 const app = express();
 connectDB();
 
-app.use(
-  cors({
-    origin: [
-      'http://localhost:5173',
-      'https://job-portal-website-tau.vercel.app/',
-      'https://job-portal-website-daayf26wf-raj-bhagats-projects.vercel.app',
-       // ← tumhara Vercel URL
-    ],
-    credentials: true,
-  }),
-);
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

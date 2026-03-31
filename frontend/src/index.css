@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+
+/* ============================================
+   DARK MODE (default)
+   ============================================ */
+:root,
+[data-theme="dark"] {
+  --bg: #0a0a0f;
+  --bg2: #111118;
+  --bg3: #1a1a24;
+  --border: #2a2a3a;
+  --accent: #6c63ff;
+  --accent2: #a78bfa;
+  --accent-glow: rgba(108, 99, 255, 0.15);
+  --text: #e8e8f0;
+  --text1: #e8e8f0;
+  --text2: #9090a8;
+  --text3: #5a5a72;
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --card: #13131e;
+  --card-hover: #1c1c2a;
+  --navbar-bg: rgba(10, 10, 15, 0.85);
+  --input-bg: #1a1a24;
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+  --hero-grad: linear-gradient(135deg, #0a0a0f 0%, #13131e 100%);
+}
+
+/* ============================================
+   LIGHT MODE
+   ============================================ */
+[data-theme="light"] {
+  --bg: #f4f4f8;
+  --bg2: #eaeaf0;
+  --bg3: #ffffff;
+  --border: #d4d4e0;
+  --accent: #6c63ff;
+  --accent2: #7c3aed;
+  --accent-glow: rgba(108, 99, 255, 0.12);
+  --text: #1a1a2e;
+  --text1: #1a1a2e;
+  --text2: #5a5a72;
+  --text3: #9090a8;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --info: #2563eb;
+  --card: #ffffff;
+  --card-hover: #f0f0f8;
+  --navbar-bg: rgba(244, 244, 248, 0.9);
+  --input-bg: #ffffff;
+  --shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+  --hero-grad: linear-gradient(135deg, #f4f4f8 0%, #ededf5 100%);
+}
+
+/* ============================================
+   GLOBAL RESET
+   ============================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+  transition: background 0.25s, color 0.25s;
+}
+
+h1, h2, h3 { font-family: 'Syne', sans-serif; }
+
+a { text-decoration: none; color: inherit; }
+
+button { cursor: pointer; font-family: 'Space Grotesk', sans-serif; }
+
+/* ============================================
+   FORM INPUTS
+   ============================================ */
+input, textarea, select {
+  font-family: 'Space Grotesk', sans-serif;
+  background: var(--input-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 12px 16px;
+  width: 100%;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.25s;
+  outline: none;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+select option {
+  background: var(--input-bg);
+  color: var(--text);
+}
+
+/* Light mode input placeholder */
+[data-theme="light"] input::placeholder,
+[data-theme="light"] textarea::placeholder {
+  color: var(--text3);
+}
+
+/* ============================================
+   BUTTONS
+   ============================================ */
+.btn {
+  padding: 11px 24px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(108,99,255,0.3);
+}
+.btn-primary:hover { background: #5a52e0; transform: translateY(-1px); box-shadow: 0 6px 24px rgba(108,99,255,0.4); }
+.btn-outline {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { border-color: var(--accent); background: var(--accent-glow); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { opacity: 0.88; }
+.btn-success { background: var(--success); color: #fff; }
+.btn-sm { padding: 7px 14px; font-size: 12px; border-radius: 7px; }
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.25s;
+}
+.card:hover { border-color: var(--accent); box-shadow: 0 4px 30px var(--accent-glow); }
+
+/* ============================================
+   BADGES
+   ============================================ */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.badge-pending    { background: rgba(245,158,11,0.15); color: var(--warning); }
+.badge-reviewed   { background: rgba(59,130,246,0.15); color: var(--info); }
+.badge-shortlisted { background: rgba(108,99,255,0.15); color: var(--accent2); }
+.badge-rejected   { background: rgba(239,68,68,0.15); color: var(--danger); }
+.badge-hired      { background: rgba(34,197,94,0.15); color: var(--success); }
+.badge-remote     { background: rgba(34,197,94,0.15); color: var(--success); }
+.badge-fulltime   { background: rgba(108,99,255,0.15); color: var(--accent2); }
+.badge-parttime   { background: rgba(245,158,11,0.15); color: var(--warning); }
+.badge-internship { background: rgba(59,130,246,0.15); color: var(--info); }
+.badge-contract   { background: rgba(239,68,68,0.12); color: var(--danger); }
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.page-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.form-group label { font-size: 13px; font-weight: 500; color: var(--text2); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ============================================
+   ALERTS / MESSAGES
+   ============================================ */
+.error-msg {
+  color: var(--danger);
+  font-size: 13px;
+  padding: 10px 14px;
+  background: rgba(239,68,68,0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(239,68,68,0.2);
+}
+.success-msg {
+  color: var(--success);
+  font-size: 13px;
+  padding: 10px 14px;
+  background: rgba(34,197,94,0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(34,197,94,0.2);
+}
+
+/* ============================================
+   SPINNER
+   ============================================ */
+.spinner {
+  width: 36px; height: 36px;
+  border: 3px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 60px auto;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ============================================
+   EMPTY STATE
+   ============================================ */
+.empty-state { text-align: center; padding: 60px 20px; color: var(--text2); }
+.empty-state .icon { font-size: 48px; margin-bottom: 16px; }
+.empty-state h3 { color: var(--text); margin-bottom: 8px; }
+
+/* ============================================
+   SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+/* ============================================
+   LIGHT MODE OVERRIDES — fine-tune contrast
+   ============================================ */
+[data-theme="light"] .card {
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+[data-theme="light"] .card:hover {
+  box-shadow: 0 6px 28px rgba(108,99,255,0.14);
+}
+[data-theme="light"] .btn-outline {
+  color: var(--accent);
+}
+[data-theme="light"] .badge-shortlisted {
+  background: rgba(108,99,255,0.1);
+  color: #5b21b6;
+}
+[data-theme="light"] .badge-pending {
+  background: rgba(217,119,6,0.12);
+  color: #92400e;
+}
+[data-theme="light"] .badge-hired {
+  background: rgba(22,163,74,0.12);
+  color: #14532d;
+}
+[data-theme="light"] .badge-rejected {
+  background: rgba(220,38,38,0.1);
+  color: #991b1b;
+}
+[data-theme="light"] .badge-reviewed {
+  background: rgba(37,99,235,0.1);
+  color: #1e3a8a;
+}
+[data-theme="light"] .error-msg {
+  background: rgba(220,38,38,0.07);
+}
+[data-theme="light"] .success-msg {
+  background: rgba(22,163,74,0.08);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .page-container { padding: 0 16px; }
+}

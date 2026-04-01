@@ -311,6 +311,7 @@ export default function JobDetail() {
       {/* Apply Modal */}
       {showModal && (
         <div
+          className="apply-modal-wrap"
           style={{
             position: 'fixed',
             inset: 0,
@@ -323,7 +324,7 @@ export default function JobDetail() {
           }}
         >
           <div
-            className="card"
+            className="card apply-modal-inner"
             style={{
               width: '100%',
               maxWidth: 500,

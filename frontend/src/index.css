@@ -276,3 +276,90 @@ select option {
   .form-row { grid-template-columns: 1fr; }
   .page-container { padding: 0 16px; }
 }
+
+.navbar-desktop { display: flex; }
+.navbar-mobile  { display: none; }
+@media (max-width: 640px) {
+  .navbar-desktop { display: none; }
+  .navbar-mobile  { display: flex; }
+}
+
+@media (max-width: 640px) {
+  .hero-cta { flex-direction: column !important; align-items: stretch !important; }
+  .hero-cta a, .hero-cta button { width: 100% !important; justify-content: center !important; }
+  .hero-stats { gap: 24px !important; margin-top: 48px !important; }
+  .cta-buttons { flex-direction: column !important; align-items: stretch !important; }
+  .cta-buttons a { width: 100% !important; justify-content: center !important; }
+}
+
+.jobs-filter-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: end;
+}
+@media (max-width: 900px) {
+  .jobs-filter-grid { grid-template-columns: 1fr 1fr; }
+  .jobs-filter-grid .filter-search { grid-column: 1 / -1; }
+  .jobs-filter-grid .filter-submit { grid-column: 1 / -1; }
+  .jobs-filter-grid .filter-submit button { width: 100%; }
+}
+@media (max-width: 540px) {
+  .jobs-filter-grid { grid-template-columns: 1fr; }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+@media (max-width: 480px) {
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.tabs-row {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tabs-row::-webkit-scrollbar { display: none; }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.applicant-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+@media (max-width: 580px) {
+  .applicant-card-row { flex-direction: column; }
+  .applicant-card-row select { width: 100% !important; }
+}
+
+.job-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pagination-row {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 540px) {
+  .apply-modal-wrap { padding: 0 !important; align-items: flex-end !important; }
+  .apply-modal-inner { max-width: 100% !important; max-height: 100vh !important; border-radius: 0 !important; }
+}

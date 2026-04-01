@@ -18,6 +18,12 @@ export default function Navbar() {
   const isActive = (path) => location.pathname === path;
   const closeMenu = () => setMenuOpen(false);
 
+  const handleToggleTheme = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    toggleTheme();
+  };
+
   return (
     <nav
       style={{
@@ -28,7 +34,6 @@ export default function Navbar() {
         top: 0,
         zIndex: 100,
         transition: 'background 0.3s, border-color 0.3s',
-        position: 'relative',
       }}
     >
       <div
@@ -169,7 +174,7 @@ export default function Navbar() {
             </>
           )}
           <button
-            onClick={toggleTheme}
+            onClick={handleToggleTheme}
             title={
               theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'
             }
@@ -196,7 +201,7 @@ export default function Navbar() {
         {/* Mobile: theme + hamburger */}
         <div className="navbar-mobile" style={{ alignItems: 'center', gap: 8 }}>
           <button
-            onClick={toggleTheme}
+            onClick={handleToggleTheme}
             style={{
               width: 38,
               height: 38,
@@ -209,6 +214,10 @@ export default function Navbar() {
               justifyContent: 'center',
               fontSize: 17,
               cursor: 'pointer',
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
             }}
           >
             {theme === 'dark' ? '☀️' : '🌙'}
@@ -228,6 +237,10 @@ export default function Navbar() {
               justifyContent: 'center',
               fontSize: 20,
               cursor: 'pointer',
+              WebkitTapHighlightColor: 'transparent',
+              touchAction: 'manipulation',
+              userSelect: 'none',
+              WebkitUserSelect: 'none',
             }}
           >
             {menuOpen ? '✕' : '☰'}
